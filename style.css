@@ -1,110 +1,359 @@
-/* CONFIGURACIÓN GENERAL */
+/* CONFIGURACIÓN GENERAL Y SCROLL SUAVE */
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    background-color: #f8fafc; /* Fondo gris muy claro, descansa la vista */
-    color: #334155; /* Texto principal en gris oscuro (más elegante que el negro puro) */
-    padding: 40px 20px;
+    background-color: #f1f5f9;
+    color: #334155;
+    padding-top: 70px; 
 }
 
-/* CONTENEDOR PRINCIPAL (Para centrar la página y darle estructura) */
-body > * {
-    max-width: 800px;
-    margin: 0 auto 30px auto;
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+/* BARRA DE NAVEGACIÓN */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #0f172a;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    z-index: 1000;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
-/* ENCABEZADO (Tu presentación principal) */
-header {
-    background: #0f172a !important; /* Azul oscuro/negro tecnológico */
-    color: #ffffff;
-    text-align: center;
-    border-bottom: 4px solid #0284c7; /* Línea de acento azul brillante */
-}
-
-header h1 {
-    font-size: 2rem;
+.nav-logo {
     font-weight: 700;
-    margin-bottom: 10px;
-    letter-spacing: -0.5px;
-}
-
-header h2 {
-    font-size: 1.2rem;
-    color: #38bdf8; /* Azul claro para resaltar tu especialidad */
-    font-weight: 400;
-    margin-bottom: 15px;
-}
-
-header p {
-    font-size: 0.95rem;
-    color: #94a3b8;
-}
-
-header a {
+    font-size: 1.5rem;
     color: #38bdf8;
+    letter-spacing: 2px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+/* CONTENEDOR PRINCIPAL: Ocultos por defecto para el sistema SPA */
+header, .seccion {
+    max-width: 900px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+    display: none; /* <-- Esto oculta todas las secciones al cargar */
+}
+
+/* CLASE MÁGICA: Muestra solo la sección seleccionada con animación */
+header.activa, .seccion.activa {
+    display: block !important;
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* Animación de transición sofisticada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Indicador visual en la barra de navegación para el menú activo */
+.nav-links a.activo {
+    color: #38bdf8 !important;
+    border-bottom: 2px solid #38bdf8;
+    padding-bottom: 4px;
+    font-weight: 700;
+}
+
+/* TÍTULOS TIPO BARRA */
+.titulo-barra {
+    background: #1e293b;
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 6px;
+    border-left: 5px solid #38bdf8;
+    margin-bottom: 25px;
+    font-size: 1.4rem;
+}
+
+/* TARJETAS DE EXPERIENCIA Y PROYECTOS */
+.card-trabajo, .card-proyecto {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-trabajo:hover, .card-proyecto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.empresa-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 15px;
+}
+
+.logo-empresa {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.empresa-info h4 {
+    font-size: 1.2rem;
+    color: #0f172a;
+}
+
+.link-empresa {
+    color: #0284c7;
     text-decoration: none;
     font-weight: 600;
-    transition: color 0.2s ease;
 }
 
-header a:hover {
-    color: #ffffff;
+.fecha {
+    display: block;
+    color: #64748b;
+    font-size: 0.85rem;
 }
 
-/* TÍTULOS DE SECCIÓN */
-h3 {
-    font-size: 1.3rem;
-    color: #0f172a;
+.tareas {
+    margin-left: 20px;
+    color: #475569;
+}
+
+/* --- SECCIÓN RECOMENDACIONES --- */
+.header-recomendaciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 15px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid #e2e8f0;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.subtitulo-seccion {
+    color: #64748b;
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+}
+
+.btn-agregar {
+    background: #0284c7;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-agregar:hover {
+    background: #0369a1;
+    transform: translateY(-2px);
+}
+
+/* ESTILOS DEL FORMULARIO FIREBASE */
+.form-container {
+    display: none;
+    background: #f8fafc;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border: 1px solid #e2e8f0;
+}
+
+.form-container input, .form-container textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #cbd5e1;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.form-container textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.btn-submit {
+    background: #10b981;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.btn-submit:hover { background: #059669; }
+
+.btn-cancel {
+    background: #ef4444;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.btn-cancel:hover { background: #dc2626; }
+
+/* GRID DE TARJETAS DE RECOMENDACIÓN */
+.grid-recomendaciones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card-recomendacion {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+    border-radius: 8px;
     position: relative;
 }
 
-/* LISTAS Y DETALLES */
-ul {
-    list-style-position: inside;
-    margin-left: 5px;
+.card-recomendacion::before {
+    content: '"';
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 3rem;
+    color: #cbd5e1;
+    font-family: serif;
+    line-height: 1;
 }
 
-li {
-    margin-bottom: 8px;
+.perfil-recomienda {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
 }
 
-/* ELEMENTOS DE EXPERIENCIA Y PROYECTOS */
-.trabajo, .proyecto {
-    margin-bottom: 20px;
-}
-
-.trabajo h4, .proyecto h4 {
+.avatar {
+    background: #1e293b;
+    color: white;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-weight: bold;
     font-size: 1.1rem;
-    color: #1e293b;
-    margin-bottom: 4px;
 }
 
-.trabajo p em {
-    font-size: 0.9rem;
+.perfil-recomienda strong {
+    display: block;
+    color: #0f172a;
+    font-size: 1rem;
+}
+
+.perfil-recomienda span {
     color: #64748b;
-    font-style: normal;
+    font-size: 0.8rem;
+}
+
+.texto-recomendacion {
+    font-size: 0.95rem;
+    color: #475569;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.fecha-recom {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #94a3b8;
+}
+
+/* 1. FIJAR EL FOOTER SIEMPRE AL FONDO (Sticky Footer) */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Obliga al cuerpo a medir al menos el 100% de la pantalla */
+}
+
+footer {
+    margin-top: auto; /* Empuja el footer hacia el final del espacio disponible */
+    width: 100%;
+}
+
+/* 2. DISEÑO DE LA FOTO DE PERFIL Y CABECERA */
+header {
+    position: relative; /* Necesario para que el botón de editar se posicione bien */
+}
+
+.foto-perfil {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%; /* Esto hace que la foto sea un círculo perfecto */
+    object-fit: cover;
+    border: 4px solid #38bdf8;
+    margin: 0 auto 20px auto;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.contacto-links {
+    margin-top: 15px;
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+.contacto-links a {
+    color: #0284c7;
+    text-decoration: none;
     font-weight: 500;
 }
 
-/* PIE DE PÁGINA */
-footer {
-    background: transparent !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-    text-align: center;
-    font-size: 0.85rem;
-    color: #94a3b8;
+.contacto-links a:hover {
+    text-decoration: underline;
 }

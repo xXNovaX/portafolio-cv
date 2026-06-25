@@ -3,74 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Benjamín Contreras Soto | Portafolio Profesional</title>
-    <!-- Más adelante conectaremos nuestro archivo de estilos (CSS) aquí -->
+    <title>Benjamín Contreras Soto | Ingeniero en Informática</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ENCABEZADO -->
-    <header>
-        <h1>Benjamín Leandro Contreras Soto</h1>
-        <h2>Estudiante de Ingeniería en Informática | Ciberseguridad & IA | Liderazgo de Equipos</h2>
-        <p>Santiago, Chile | <a href="mailto:benja.220796@gmail.com">Contactese a mi correo!!</a> | <a href="https://www.linkedin.com/in/benjamin-contreras-soto/">LinkedIn</a> | <a href="https://github.com/xXNovaX/xXNovaX">GitHub</a></p>
+    <nav class="navbar">
+        <div class="nav-logo">BCS</div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre Mí</a></li>
+            <li><a href="#experiencia">Experiencia</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#recomendaciones">Recomendaciones</a></li>
+        </ul>
+    </nav>
+
+   <header id="inicio" class="activa">
+        <button id="btn-editar-inicio" style="display: none; position: absolute; top: 15px; right: 15px; background: #f59e0b; color: white; border: none; padding: 5px 15px; border-radius: 4px; cursor: pointer; font-weight: bold;">✏️ Editar Perfil</button>
+
+        <img id="inicio-foto" src="https://via.placeholder.com/160" alt="Foto de Perfil" class="foto-perfil">
+        <h1 id="inicio-nombre">Benjamín Leandro Contreras Soto</h1>
+        <h2 id="inicio-subtitulo">Ingeniería en Informática | Ciberseguridad & IA | Liderazgo</h2>
+        
+        <div class="contacto-links">
+            <span id="inicio-ubicacion">Santiago, Chile</span> | 
+            <a href="mailto:benja.220796@gmail.com" id="inicio-email">Correo</a> | 
+            <a href="https://linkedin.com" id="inicio-linkedin" target="_blank">LinkedIn</a> | 
+            <a href="https://github.com" id="inicio-github" target="_blank">GitHub</a>
+        </div>
     </header>
 
-    <!-- SECCIÓN: SOBRE MÍ -->
-    <section id="sobre-mi">
-        <h3>Sobre Mí</h3>
-        <p>
-            Profesional en desarrollo con experiencia sólida como Supervisor de Seguridad y formación avanzada en Tecnologías de la Información. 
-            Actualmente enfocado en la ciberseguridad ofensiva, protección de aplicaciones web y la integración de Inteligencia Artificial en el gobierno de TI. 
-            Me destaco por mi capacidad para liderar equipos, gestionar protocolos de seguridad y aplicar pensamiento analítico a proyectos tecnológicos complejos.
-        </p>
-    </section>
-
-    <!-- SECCIÓN: EXPERIENCIA -->
-    <section id="experiencia">
-        <h3>Experiencia Profesional</h3>
-        <div class="trabajo">
-            <h4>Supervisor de Seguridad</h4>
-            <p><em>Marzo 2026 - Presente</em></p>
-            <ul>
-                <li>Liderazgo de equipos y coordinación de turnos.</li>
-                <li>Implementación de protocolos de prevención y seguridad.</li>
-            </ul>
+    <div id="modal-inicio" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.9); z-index: 2000; justify-content: center; align-items: center;">
+        <div style="background: white; padding: 30px; border-radius: 8px; width: 90%; max-width: 500px;">
+            <h3 style="margin-bottom: 15px; color: #0f172a;">Editar Presentación</h3>
+            
+            <label style="font-size: 0.8rem; color: #64748b;">Link de tu Foto (Sube una imagen a internet y pega el link aquí)</label>
+            <input type="text" id="edit-foto" placeholder="URL de la imagen" style="width:100%; margin-bottom:10px; padding:10px; border-radius:4px; border:1px solid #cbd5e1;">
+            
+            <label style="font-size: 0.8rem; color: #64748b;">Subtítulo Profesional</label>
+            <input type="text" id="edit-subtitulo" style="width:100%; margin-bottom:10px; padding:10px; border-radius:4px; border:1px solid #cbd5e1;">
+            
+            <label style="font-size: 0.8rem; color: #64748b;">Ubicación</label>
+            <input type="text" id="edit-ubicacion" style="width:100%; margin-bottom:10px; padding:10px; border-radius:4px; border:1px solid #cbd5e1;">
+            
+            <label style="font-size: 0.8rem; color: #64748b;">Correo Electrónico</label>
+            <input type="email" id="edit-email" style="width:100%; margin-bottom:10px; padding:10px; border-radius:4px; border:1px solid #cbd5e1;">
+            
+            <label style="font-size: 0.8rem; color: #64748b;">Link de LinkedIn</label>
+            <input type="url" id="edit-linkedin" style="width:100%; margin-bottom:10px; padding:10px; border-radius:4px; border:1px solid #cbd5e1;">
+            
+            <label style="font-size: 0.8rem; color: #64748b;">Link de GitHub</label>
+            <input type="url" id="edit-github" style="width:100%; margin-bottom:15px; padding:10px; border-radius:4px; border:1px solid #cbd5e1;">
+            
+            <button id="btn-guardar-inicio" style="background: #10b981; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Guardar</button>
+            <button id="btn-cerrar-inicio" style="background: #ef4444; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; margin-left: 10px; font-weight: bold;">Cancelar</button>
         </div>
-        <!-- Aquí podemos agregar tus roles anteriores de supervisión -->
-    </section>
+    </div>
 
-    <!-- SECCIÓN: EDUCACIÓN -->
-    <section id="educacion">
-        <h3>Educación</h3>
-        <ul>
-            <li>
-                <strong>Ingeniería en Informática</strong> - Duoc UC (San Joaquín)
-                <br><em>Cursando séptimo semestre</em>
-            </li>
-            <li>
-                <strong>Inglés</strong> - Nivel Intermedio
-            </li>
-        </ul>
-    </section>
-
-    <!-- SECCIÓN: PROYECTOS -->
-    <section id="proyectos">
-        <h3>Proyectos Destacados</h3>
-        <div class="proyecto">
-            <h4>Sistema de Detección de Intrusos con IA</h4>
-            <p>Desarrollo de proyecto de título enfocado en ciberseguridad, utilizando metodologías técnicas para la detección de amenazas.</p>
+  <section id="sobre-mi" class="seccion">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+            <h3 class="titulo-barra" style="margin-bottom: 0;">Sobre Mí</h3>
+            <button id="btn-editar-sobremi" style="display: none; background: #f59e0b; color: white; border: none; padding: 5px 15px; border-radius: 4px; cursor: pointer; font-weight: bold;">✏️ Editar</button>
         </div>
-        <div class="proyecto">
-            <h4>Desarrollo de Modelo de Negocio para App Móvil</h4>
-            <p>Planificación de ejecución y fases de producto mínimo viable (MVP) para una aplicación de comercio electrónico (Play Store).</p>
+        
+        <p id="texto-sobremi">Cargando perfil...</p>
+
+        <div id="editor-sobremi" style="display: none;">
+            <textarea id="input-sobremi" style="width: 100%; min-height: 120px; padding: 10px; border-radius: 4px; border: 1px solid #cbd5e1; font-family: inherit; margin-bottom: 10px;"></textarea>
+            <button id="btn-guardar-sobremi" style="background: #10b981; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; font-weight: bold;">💾 Guardar</button>
+            <button id="btn-cancelar-edicion" style="background: #ef4444; color: white; border: none; padding: 8px 15px; border-radius: 4px; cursor: pointer; margin-left: 10px; font-weight: bold;">Cancelar</button>
         </div>
     </section>
 
-    <!-- PIE DE PÁGINA -->
+
+<section id="experiencia" class="seccion">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+            <h3 class="titulo-barra" style="margin-bottom: 0;">Experiencia Laboral</h3>
+            <button id="btn-add-exp" style="display: none; background: #10b981; color: white; border: none; padding: 5px 15px; border-radius: 4px; cursor: pointer; font-weight: bold;">➕ Agregar Experiencia</button>
+        </div>
+        
+        <div id="contenedor-experiencia">
+            <p>Cargando experiencia...</p>
+        </div>
+    </section>
+
+    <section id="proyectos" class="seccion">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+            <h3 class="titulo-barra" style="margin-bottom: 0;">Proyectos Destacados</h3>
+            <button id="btn-add-proy" style="display: none; background: #10b981; color: white; border: none; padding: 5px 15px; border-radius: 4px; cursor: pointer; font-weight: bold;">➕ Agregar Proyecto</button>
+        </div>
+        
+        <div id="contenedor-proyectos">
+            <p>Cargando proyectos...</p>
+        </div>
+    </section>
+
+    <div id="modal-exp" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.9); z-index: 2000; justify-content: center; align-items: center;">
+        <div style="background: white; padding: 30px; border-radius: 8px; width: 90%; max-width: 500px;">
+            <h3 style="margin-bottom: 15px; color: #0f172a;">Nueva Experiencia</h3>
+            <input type="text" id="exp-cargo" placeholder="Cargo (Ej. Supervisor de Seguridad)" style="width:100%; margin-bottom:10px; padding:10px; border-radius:4px; border:1px solid #cbd5e1;">
+            <input type="text" id="exp-empresa" placeholder="Empresa (Ej. Paris Alto Las Condes)" style="width:100%; margin-bottom:10px; padding:10px; border-radius:4px; border:1px solid #cbd5e1;">
+            <input type="text" id="exp-fecha" placeholder="Fecha (Ej. Marzo 2026 - Presente)" style="width:100%; margin-bottom:10px; padding:10px; border-radius:4px; border:1px solid #cbd5e1;">
+            <textarea id="exp-tareas" placeholder="Escribe las tareas separadas por un guion medio (-)" style="width:100%; min-height:80px; margin-bottom:15px; padding:10px; border-radius:4px; border:1px solid #cbd5e1; font-family:inherit;"></textarea>
+            <button id="btn-guardar-exp" style="background: #10b981; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Guardar</button>
+            <button id="btn-cerrar-exp" style="background: #ef4444; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; margin-left: 10px; font-weight: bold;">Cancelar</button>
+        </div>
+    </div>
+
+    <div id="modal-proy" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.9); z-index: 2000; justify-content: center; align-items: center;">
+        <div style="background: white; padding: 30px; border-radius: 8px; width: 90%; max-width: 500px;">
+            <h3 style="margin-bottom: 15px; color: #0f172a;">Nuevo Proyecto</h3>
+            <input type="text" id="proy-titulo" placeholder="Título del Proyecto" style="width:100%; margin-bottom:10px; padding:10px; border-radius:4px; border:1px solid #cbd5e1;">
+            <textarea id="proy-desc" placeholder="Descripción técnica del proyecto" style="width:100%; min-height:100px; margin-bottom:15px; padding:10px; border-radius:4px; border:1px solid #cbd5e1; font-family:inherit;"></textarea>
+            <button id="btn-guardar-proy" style="background: #10b981; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Guardar</button>
+            <button id="btn-cerrar-proy" style="background: #ef4444; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; margin-left: 10px; font-weight: bold;">Cancelar</button>
+        </div>
+    </div> 
+
+    <section id="recomendaciones" class="seccion">
+        <div class="header-recomendaciones">
+            <h3 class="titulo-barra" style="margin-bottom: 0;">Recomendaciones</h3>
+            <a href="#" class="btn-agregar" id="btn-abrir-form">Escribir una Recomendación</a>
+        </div>
+        
+        <p class="subtitulo-seccion">Lo que dicen colegas y profesionales sobre mi trabajo:</p>
+
+        <div id="form-recomendacion" class="form-container">
+            <h4>Deja tu recomendación</h4>
+            <input type="text" id="nombre-recom" placeholder="Tu Nombre (Ej. Juan Pérez)" required>
+            <input type="text" id="cargo-recom" placeholder="Tu Cargo o Empresa" required>
+            <textarea id="texto-recom" placeholder="Escribe tu recomendación detallada aquí..." required></textarea>
+            <button id="btn-enviar-recom" class="btn-submit">Enviar para revisión</button>
+            <button id="btn-cancelar-recom" class="btn-cancel">Cancelar</button>
+        </div>
+
+        <div class="grid-recomendaciones">
+            <div class="card-recomendacion">
+                <div class="perfil-recomienda">
+                    <div class="avatar">JP</div>
+                    <div>
+                        <strong>Juan Pérez (Ejemplo)</strong>
+                        <span>Jefe de Operaciones</span>
+                    </div>
+                </div>
+                <p class="texto-recomendacion">"Benjamín demostró una capacidad excepcional para liderar bajo presión. Su enfoque analítico para resolver vulnerabilidades fue clave."</p>
+                <span class="fecha-recom">Marzo 2026</span>
+            </div>
+        </div>
+    </section>
+
+    <div id="login-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.9); z-index: 2000; justify-content: center; align-items: center;">
+        <div style="background: white; padding: 30px; border-radius: 8px; width: 90%; max-width: 400px; text-align: center;">
+            <h3 style="margin-bottom: 20px; color: #0f172a;">Acceso Administrador</h3>
+            <input type="email" id="admin-email" placeholder="Correo electrónico" style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #cbd5e1; border-radius: 4px;">
+            <input type="password" id="admin-pass" placeholder="Contraseña" style="width: 100%; padding: 10px; margin-bottom: 20px; border: 1px solid #cbd5e1; border-radius: 4px;">
+            <button id="btn-login" style="background: #0f172a; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; width: 100%; margin-bottom: 10px; font-weight: bold;">Iniciar Sesión</button>
+            <button id="btn-cerrar-login" style="background: transparent; color: #64748b; border: none; cursor: pointer;">Cancelar</button>
+            <p id="login-error" style="color: #ef4444; font-size: 0.85rem; margin-top: 10px; display: none;">Credenciales incorrectas.</p>
+        </div>
+    </div>
+
     <footer>
-        <p>&copy; 2026 Benjamín Contreras Soto. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Benjamín Contreras Soto. Todos los derechos reservados. 
+            <a href="#" id="abrir-login" style="color: #94a3b8; text-decoration: none; margin-left: 10px;">🔒</a>
+            <a href="#" id="cerrar-sesion" style="display: none; color: #ef4444; text-decoration: none; margin-left: 10px; font-weight: bold;">🚪 Cerrar Sesión</a>
+        </p>
     </footer>
 
+    <script type="module" src="app.js"></script>
 </body>
 </html>
