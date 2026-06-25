@@ -1,0 +1,110 @@
+/* CONFIGURACIÓN GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f8fafc; /* Fondo gris muy claro, descansa la vista */
+    color: #334155; /* Texto principal en gris oscuro (más elegante que el negro puro) */
+    padding: 40px 20px;
+}
+
+/* CONTENEDOR PRINCIPAL (Para centrar la página y darle estructura) */
+body > * {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+/* ENCABEZADO (Tu presentación principal) */
+header {
+    background: #0f172a !important; /* Azul oscuro/negro tecnológico */
+    color: #ffffff;
+    text-align: center;
+    border-bottom: 4px solid #0284c7; /* Línea de acento azul brillante */
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+}
+
+header h2 {
+    font-size: 1.2rem;
+    color: #38bdf8; /* Azul claro para resaltar tu especialidad */
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+header p {
+    font-size: 0.95rem;
+    color: #94a3b8;
+}
+
+header a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+header a:hover {
+    color: #ffffff;
+}
+
+/* TÍTULOS DE SECCIÓN */
+h3 {
+    font-size: 1.3rem;
+    color: #0f172a;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e2e8f0;
+    position: relative;
+}
+
+/* LISTAS Y DETALLES */
+ul {
+    list-style-position: inside;
+    margin-left: 5px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* ELEMENTOS DE EXPERIENCIA Y PROYECTOS */
+.trabajo, .proyecto {
+    margin-bottom: 20px;
+}
+
+.trabajo h4, .proyecto h4 {
+    font-size: 1.1rem;
+    color: #1e293b;
+    margin-bottom: 4px;
+}
+
+.trabajo p em {
+    font-size: 0.9rem;
+    color: #64748b;
+    font-style: normal;
+    font-weight: 500;
+}
+
+/* PIE DE PÁGINA */
+footer {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
