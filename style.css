@@ -552,3 +552,34 @@ header, .seccion {
 .card-recomendacion::before {
     color: rgba(56, 189, 248, 0.15) !important; 
 }
+
+/* ==========================================
+   INDICADOR DE ESTADO (LIVE STATUS)
+   ========================================== */
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.6);
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+.pulse-circle {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981; /* Verde éxito */
+    border-radius: 50%;
+    margin-right: 8px;
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+    animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
