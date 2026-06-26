@@ -13,19 +13,25 @@ html {
 }
 
 body {
-    /* Mantenemos tu configuración estructural */
+    background-color: #f1f5f9;
+    /* Cuadrícula técnica que simula un plano de datos */
+    background-image: 
+        linear-gradient(rgba(56, 189, 248, 0.25) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.25) 1px, transparent 1px);
+    background-size: 40px 40px;
+    /* La animación hace que la cuadrícula se mueva constantemente */
+    animation: moverDatos 15s linear infinite;
     color: #334155;
     padding-top: 70px; 
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    
-    /* NUEVO FONDO INFORMÁTICO (Patrón de nodos/matriz) */
-    background-color: #f8fafc;
-    background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
-    background-size: 25px 25px; /* Define la separación entre los puntos */
 }
 
+@keyframes moverDatos {
+    0% { background-position: 0px 0px; }
+    100% { background-position: 40px 40px; }
+}
 /* ==========================================
    BARRA DE NAVEGACIÓN
    ========================================== */
@@ -86,8 +92,28 @@ header, .seccion {
     background: #ffffff;
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-    display: none; /* Oculta todo por defecto */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    display: none; 
+    position: relative; /* CRÍTICO para que el brillo funcione */
+}
+
+/* El aura Glow Animada */
+header::before, .seccion::before {
+    content: "";
+    position: absolute;
+    top: -3px; left: -3px; right: -3px; bottom: -3px;
+    background: linear-gradient(45deg, #38bdf8, #10b981, #38bdf8, #8b5cf6);
+    z-index: -1;
+    background-size: 400%;
+    border-radius: 15px;
+    animation: bordeGlow 12s ease infinite;
+    opacity: 0.6;
+}
+
+@keyframes bordeGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* Clase que activa la vista seleccionada */
@@ -472,4 +498,27 @@ footer {
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 6px rgba(2, 132, 199, 0.2);
+}
+
+/* EL MONITO FLOTANTE */
+.monito-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; /* A la izquierda para no tapar tu botón de Cerrar Sesión */
+    width: 120px;
+    z-index: 9999;
+    pointer-events: none; /* Para que no estorbe si pasas el mouse por ahí */
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+    animation: flotarMonito 4s ease-in-out infinite;
+}
+
+.monito-container img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+@keyframes flotarMonito {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
 }
