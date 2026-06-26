@@ -1,4 +1,6 @@
-/* CONFIGURACIÓN GENERAL Y SCROLL SUAVE */
+/* ==========================================
+   CONFIGURACIÓN GENERAL Y SCROLL SUAVE
+   ========================================== */
 html {
     scroll-behavior: smooth;
 }
@@ -19,7 +21,9 @@ body {
     min-height: 100vh;
 }
 
-/* BARRA DE NAVEGACIÓN */
+/* ==========================================
+   BARRA DE NAVEGACIÓN
+   ========================================== */
 .navbar {
     position: fixed;
     top: 0;
@@ -58,7 +62,16 @@ body {
     color: #38bdf8;
 }
 
-/* CONTENEDOR PRINCIPAL: Ocultos por defecto */
+.nav-links a.activo {
+    color: #38bdf8 !important;
+    border-bottom: 2px solid #38bdf8;
+    padding-bottom: 4px;
+    font-weight: 700;
+}
+
+/* ==========================================
+   CONTENEDORES PRINCIPALES Y SISTEMA SPA
+   ========================================== */
 header, .seccion {
     max-width: 900px;
     margin: 40px auto;
@@ -66,15 +79,10 @@ header, .seccion {
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-    display: none; 
+    display: none; /* Oculta todo por defecto */
 }
 
-/* RESPETA LOS SALTOS DE LÍNEA EN EL TEXTO SOBRE MÍ */
-#texto-sobremi {
-    white-space: pre-wrap;
-}
-
-/* CLASE MÁGICA: Muestra solo la sección seleccionada */
+/* Clase que activa la vista seleccionada */
 header.activa, .seccion.activa {
     display: block !important;
     animation: fadeIn 0.4s ease-out;
@@ -91,14 +99,59 @@ header.activa, .seccion.activa {
     }
 }
 
-.nav-links a.activo {
-    color: #38bdf8 !important;
-    border-bottom: 2px solid #38bdf8;
-    padding-bottom: 4px;
-    font-weight: 700;
+/* ==========================================
+   DISEÑO DE LA CABECERA (INICIO)
+   ========================================== */
+header {
+    position: relative; 
+    text-align: center; /* Centra la foto, nombre y subtítulo */
 }
 
-/* TÍTULOS TIPO BARRA */
+.foto-perfil {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%; 
+    object-fit: cover;
+    border: 4px solid #38bdf8;
+    margin: 0 auto 20px auto;
+    display: block;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* REDES SOCIALES E ÍCONOS DE CONTACTO */
+.contacto-links {
+    margin-top: 15px;
+    color: #64748b;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap; /* Evita que los íconos se aplasten en celular */
+}
+
+.contacto-links a {
+    color: #0f172a;
+    text-decoration: none;
+    transition: transform 0.3s, color 0.3s;
+    display: inline-block;
+}
+
+.contacto-links a:hover {
+    color: #38bdf8;
+    transform: scale(1.2); /* Efecto de crecimiento */
+    text-decoration: none; 
+}
+
+/* ==========================================
+   SECCIÓN SOBRE MÍ
+   ========================================== */
+#texto-sobremi {
+    white-space: pre-wrap; /* Respeta los saltos de línea */
+    color: #475569;
+    line-height: 1.6;
+}
+
 .titulo-barra {
     background: #1e293b;
     color: #ffffff;
@@ -109,7 +162,9 @@ header.activa, .seccion.activa {
     font-size: 1.4rem;
 }
 
-/* TARJETAS DE EXPERIENCIA Y PROYECTOS */
+/* ==========================================
+   TARJETAS (EXPERIENCIA Y PROYECTOS)
+   ========================================== */
 .card-trabajo, .card-proyecto {
     border: 1px solid #e2e8f0;
     border-radius: 8px;
@@ -161,7 +216,9 @@ header.activa, .seccion.activa {
     color: #475569;
 }
 
-/* --- SECCIÓN RECOMENDACIONES --- */
+/* ==========================================
+   SECCIÓN RECOMENDACIONES
+   ========================================== */
 .header-recomendaciones {
     display: flex;
     justify-content: space-between;
@@ -192,59 +249,6 @@ header.activa, .seccion.activa {
     transform: translateY(-2px);
 }
 
-/* ESTILOS DEL FORMULARIO FIREBASE */
-.form-container {
-    display: none;
-    background: #f8fafc;
-    padding: 25px;
-    border-radius: 8px;
-    margin-bottom: 25px;
-    border: 1px solid #e2e8f0;
-}
-
-.form-container input, .form-container textarea {
-    width: 100%;
-    margin-bottom: 15px;
-    padding: 12px;
-    border-radius: 4px;
-    border: 1px solid #cbd5e1;
-    font-family: inherit;
-    font-size: 0.95rem;
-}
-
-.form-container textarea {
-    min-height: 100px;
-    resize: vertical;
-}
-
-.btn-submit {
-    background: #10b981;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 1rem;
-}
-
-.btn-submit:hover { background: #059669; }
-
-.btn-cancel {
-    background: #ef4444;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-left: 10px;
-    font-weight: bold;
-    font-size: 1rem;
-}
-
-.btn-cancel:hover { background: #dc2626; }
-
-/* GRID DE TARJETAS DE RECOMENDACIÓN */
 .grid-recomendaciones {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -314,6 +318,63 @@ header.activa, .seccion.activa {
     text-transform: uppercase;
 }
 
+/* ==========================================
+   ESTILOS DE FORMULARIOS (MODALES FIREBASE)
+   ========================================== */
+.form-container {
+    display: none;
+    background: #f8fafc;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border: 1px solid #e2e8f0;
+}
+
+.form-container input, .form-container textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 12px;
+    border-radius: 4px;
+    border: 1px solid #cbd5e1;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.form-container textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.btn-submit {
+    background: #10b981;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.btn-submit:hover { background: #059669; }
+
+.btn-cancel {
+    background: #ef4444;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.btn-cancel:hover { background: #dc2626; }
+
+/* ==========================================
+   PIE DE PÁGINA (FOOTER)
+   ========================================== */
 footer {
     text-align: center;
     padding: 20px;
@@ -322,40 +383,8 @@ footer {
     width: 100%;
 }
 
-/* DISEÑO DE LA FOTO DE PERFIL Y CABECERA */
-header {
-    position: relative; 
-}
-
-.foto-perfil {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%; 
-    object-fit: cover;
-    border: 4px solid #38bdf8;
-    margin: 0 auto 20px auto;
-    display: block;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.contacto-links {
-    margin-top: 15px;
-    color: #64748b;
-    font-size: 0.95rem;
-}
-
-.contacto-links a {
-    color: #0284c7;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.contacto-links a:hover {
-    text-decoration: underline;
-}
-
 /* ==========================================
-   DISEÑO RESPONSIVO UNIFICADO (PARA CELULARES)
+   DISEÑO RESPONSIVO UNIFICADO (CELULARES)
    ========================================== */
 @media (max-width: 768px) {
     
