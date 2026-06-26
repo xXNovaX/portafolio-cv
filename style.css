@@ -14,6 +14,9 @@ body {
     background-color: #f1f5f9;
     color: #334155;
     padding-top: 70px; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* BARRA DE NAVEGACIÓN */
@@ -55,7 +58,7 @@ body {
     color: #38bdf8;
 }
 
-/* CONTENEDOR PRINCIPAL: Ocultos por defecto para el sistema SPA */
+/* CONTENEDOR PRINCIPAL: Ocultos por defecto */
 header, .seccion {
     max-width: 900px;
     margin: 40px auto;
@@ -63,23 +66,20 @@ header, .seccion {
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-    display: none; /* <-- Esto oculta todas las secciones al cargar */
+    display: none; 
 }
-
 
 /* RESPETA LOS SALTOS DE LÍNEA EN EL TEXTO SOBRE MÍ */
 #texto-sobremi {
     white-space: pre-wrap;
 }
 
-
-/* CLASE MÁGICA: Muestra solo la sección seleccionada con animación */
+/* CLASE MÁGICA: Muestra solo la sección seleccionada */
 header.activa, .seccion.activa {
     display: block !important;
     animation: fadeIn 0.4s ease-out;
 }
 
-/* Animación de transición sofisticada */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -91,7 +91,6 @@ header.activa, .seccion.activa {
     }
 }
 
-/* Indicador visual en la barra de navegación para el menú activo */
 .nav-links a.activo {
     color: #38bdf8 !important;
     border-bottom: 2px solid #38bdf8;
@@ -319,29 +318,19 @@ footer {
     text-align: center;
     padding: 20px;
     color: #94a3b8;
-}
-
-/* 1. FIJAR EL FOOTER SIEMPRE AL FONDO (Sticky Footer) */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Obliga al cuerpo a medir al menos el 100% de la pantalla */
-}
-
-footer {
-    margin-top: auto; /* Empuja el footer hacia el final del espacio disponible */
+    margin-top: auto;
     width: 100%;
 }
 
-/* 2. DISEÑO DE LA FOTO DE PERFIL Y CABECERA */
+/* DISEÑO DE LA FOTO DE PERFIL Y CABECERA */
 header {
-    position: relative; /* Necesario para que el botón de editar se posicione bien */
+    position: relative; 
 }
 
 .foto-perfil {
     width: 160px;
     height: 160px;
-    border-radius: 50%; /* Esto hace que la foto sea un círculo perfecto */
+    border-radius: 50%; 
     object-fit: cover;
     border: 4px solid #38bdf8;
     margin: 0 auto 20px auto;
@@ -366,37 +355,11 @@ header {
 }
 
 /* ==========================================
-   DISEÑO RESPONSIVO (PARA CELULARES) - CORREGIDO
+   DISEÑO RESPONSIVO UNIFICADO (PARA CELULARES)
    ========================================== */
 @media (max-width: 768px) {
     
-    /* 1. Ajustes en la Barra de Navegación */
-    .navbar {
-        flex-direction: column; /* Pone el logo arriba y los links abajo */
-        padding: 15px 10px;
-        gap: 15px; /* Separación entre el logo y los links */
-    }
-
-    .nav-links {
-        display: flex;
-        flex-wrap: wrap; /* Si no caben, bajan de línea ordenadamente */
-        justify-content: center; /* Centra todos los botones */
-        gap: 10px 15px; /* Espacio vertical y horizontal entre botones */
-    }
-
-    .nav-links a {
-        white-space: nowrap; /* EL SECRETO: Evita que "Sobre Mí" se parta en dos */
-        font-size: 0.95rem; /* Un pelín más pequeño para celular */
-        padding: 5px;
-    }
-
-
- /* ==========================================
-   DISEÑO RESPONSIVO (PARA CELULARES) - TAMAÑOS AUMENTADOS
-   ========================================== */
-@media (max-width: 768px) {
-    
-    /* 1. Ajustes en la Barra de Navegación */
+    /* Ajustes en la Barra de Navegación */
     .navbar {
         flex-direction: column; 
         padding: 15px 10px;
@@ -422,13 +385,13 @@ header {
         font-size: 1.05rem; 
     }
 
-    /* 2. Ajustes en los Contenedores Principales */
+    /* Ajustes en los Contenedores Principales */
     header, .seccion {
         margin: 20px 15px;
         padding: 20px;
     }
 
-    /* 3. Ajustes en elementos de texto y tarjetas */
+    /* Ajustes en elementos de texto y tarjetas */
     .titulo-barra {
         font-size: 1.4rem; 
     }
