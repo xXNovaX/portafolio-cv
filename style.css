@@ -431,3 +431,37 @@ footer {
         align-items: center;
     }
 }
+
+/* ==========================================
+   MEJORAS PARA LA SECCIÓN DE PROYECTOS
+   ========================================== */
+/* Soluciona el problema de los espacios y saltos de línea */
+.card-proyecto p {
+    white-space: pre-wrap;
+    color: #475569;
+    line-height: 1.6;
+}
+
+/* Estilo para el botón del enlace del proyecto */
+.btn-link-proyecto {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 8px 12px;
+    background: #f8fafc;
+    color: #0284c7;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-link-proyecto:hover {
+    background: #0284c7;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(2, 132, 199, 0.2);
+}
