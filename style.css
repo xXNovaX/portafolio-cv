@@ -13,12 +13,17 @@ html {
 }
 
 body {
-    background-color: #f1f5f9;
+    /* Mantenemos tu configuración estructural */
     color: #334155;
     padding-top: 70px; 
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    
+    /* NUEVO FONDO INFORMÁTICO (Patrón de nodos/matriz) */
+    background-color: #f8fafc;
+    background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+    background-size: 25px 25px; /* Define la separación entre los puntos */
 }
 
 /* ==========================================
@@ -55,11 +60,14 @@ body {
     color: #cbd5e1;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    /* La transición ahora anima todo (color y tamaño) de forma suave */
+    transition: all 0.3s ease; 
+    display: inline-block; 
 }
 
 .nav-links a:hover {
     color: #38bdf8;
+    transform: scale(1.15); /* Esto hace que el texto crezca un 15% */
 }
 
 .nav-links a.activo {
