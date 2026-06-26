@@ -407,6 +407,33 @@ footer {
 }
 
 /* ==========================================
+   CORRECCIÓN DE COLORES (MODO OSCURO)
+   ========================================== */
+/* Fuerza a que todo el texto base sea claro */
+header, .seccion {
+    color: #f8fafc !important; 
+}
+
+/* Párrafos, tareas y textos largos en gris muy clarito para que no canse la vista */
+#texto-sobremi, .tareas, .card-proyecto p, .fecha, .subtitulo-seccion, .texto-recomendacion, .contacto-links {
+    color: #e2e8f0 !important; 
+}
+
+/* Títulos y nombres resaltados en blanco puro */
+.empresa-info h4, .perfil-recomienda strong {
+    color: #ffffff !important; 
+}
+
+/* Links y botones con tu color Cyan original */
+.link-empresa, .contacto-links a {
+    color: #38bdf8 !important; 
+}
+
+.contacto-links a:hover {
+    color: #10b981 !important; /* Cambia a verde al pasar el mouse */
+}
+
+/* ==========================================
    DISEÑO RESPONSIVO UNIFICADO (CELULARES)
    ========================================== */
 @media (max-width: 768px) {
