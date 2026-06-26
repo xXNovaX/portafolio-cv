@@ -211,12 +211,30 @@ async function cargarProyectos() {
         const data = documento.data();
         const id = documento.id;
         
-        const btnBorrar = esAdmin ? `<button class="btn-borrar" data-id="${id}" data-col="proyectos" style="background:#ef4444; color:white; border:none; padding:5px 10px; border-radius:4px; margin-top:10px; cursor:pointer; font-weight:bold; font-size:0.8rem;">🗑️ Borrar</button>` : '';
+        const btnBorrar = esAdmin ? `<button class="btn-borrar" data-id="${id}" data-col="proyectos" style="background:#ef4444; color:white; border:none; padding:5px 10px; border-radius:4px; margin-top:15px; cursor:pointer; font-weight:bold; font-size:0.8rem; display:block;">🗑️ Borrar</button>` : '';
+
+        // LÓGICA INTELIGENTE DE ÍCONOS
+        let htmlEnlace = '';
+        if (data.enlace && data.enlace.trim() !== "") {
+            let icono = 'fa-solid fa-arrow-up-right-from-square'; // Ícono web por defecto
+            let textoBoton = 'Ver Proyecto';
+
+            if (data.enlace.includes('github.com')) {
+                icono = 'fa-brands fa-github';
+                textoBoton = 'Ver Código';
+            } else if (data.enlace.includes('play.google.com')) {
+                icono = 'fa-brands fa-google-play';
+                textoBoton = 'Ver en Play Store';
+            }
+
+            htmlEnlace = `<a href="${data.enlace}" target="_blank" class="btn-link-proyecto"><i class="${icono}"></i> ${textoBoton}</a>`;
+        }
 
         contenedorProy.innerHTML += `
             <div class="card-proyecto">
-                <h4>${data.titulo}</h4>
+                <h4 style="font-size: 1.2rem; color: #0f172a; margin-bottom: 10px;">${data.titulo}</h4>
                 <p>${data.descripcion}</p>
+                ${htmlEnlace}
                 ${btnBorrar}
             </div>
         `;
@@ -229,20 +247,34 @@ if(document.getElementById('btn-cerrar-proy')) document.getElementById('btn-cerr
 const btnGuardarProy = document.getElementById('btn-guardar-proy');
 if(btnGuardarProy) {
     btnGuardarProy.addEventListener('click', async () => {
+        const titulo = document.getElementById('proy-titulo').value.trim();
+        const descripcion = document.getElementById('proy-desc').value.trim();
+        const enlace = document.getElementById('proy-link').value.trim(); // Captura el nuevo enlace
+
+        if (!titulo || !descripcion) {
+            alert("El título y la descripción son obligatorios.");
+            return;
+        }
+
+        btnGuardarProy.textContent = "Guardando...";
+
         await addDoc(collection(db, "proyectos"), {
-            titulo: document.getElementById('proy-titulo').value,
-            descripcion: document.getElementById('proy-desc').value
+            titulo: titulo,
+            descripcion: descripcion,
+            enlace: enlace // Guarda el enlace en la base de datos
         });
+        
         modalProy.style.display = 'none';
+        btnGuardarProy.textContent = "Guardar";
         
         // Limpiar campos
         document.getElementById('proy-titulo').value = '';
         document.getElementById('proy-desc').value = '';
+        document.getElementById('proy-link').value = '';
         
         cargarProyectos(); 
     });
 }
-
 // ==========================================
 // 7. MOTOR DE ELIMINACIÓN (El poder de borrar)
 // ==========================================
