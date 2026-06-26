@@ -379,13 +379,14 @@ const txtUbicacion = document.getElementById('inicio-ubicacion');
 const linkEmail = document.getElementById('inicio-email');
 const linkLinkedin = document.getElementById('inicio-linkedin');
 const linkGithub = document.getElementById('inicio-github');
+const txtLogros = document.getElementById('inicio-logros'); // NUEVO
 
 const modalInicio = document.getElementById('modal-inicio');
 const btnEditarInicio = document.getElementById('btn-editar-inicio');
 const btnCerrarInicio = document.getElementById('btn-cerrar-inicio');
 const btnGuardarInicio = document.getElementById('btn-guardar-inicio');
 
-// Vigilar si el Admin entra para mostrar el botón de Editar Perfil
+// Vigilar si el Admin entra
 onAuthStateChanged(auth, (user) => {
     if (user && btnEditarInicio) {
         btnEditarInicio.style.display = 'block';
@@ -407,6 +408,7 @@ async function cargarInicio() {
             if(data.email) linkEmail.href = `mailto:${data.email}`;
             if(data.linkedin) linkLinkedin.href = data.linkedin;
             if(data.github) linkGithub.href = data.github;
+            if(data.logros) txtLogros.textContent = data.logros; // NUEVO
         }
     } catch(e) { console.error("Error al cargar inicio:", e); }
 }
@@ -421,6 +423,7 @@ if(btnEditarInicio) {
         document.getElementById('edit-email').value = linkEmail.href.replace('mailto:', '');
         document.getElementById('edit-linkedin').value = linkLinkedin.href;
         document.getElementById('edit-github').value = linkGithub.href;
+        document.getElementById('edit-logros').value = txtLogros.textContent; // NUEVO
         
         modalInicio.style.display = 'flex';
     });
@@ -438,7 +441,8 @@ if(btnGuardarInicio) {
             ubicacion: document.getElementById('edit-ubicacion').value.trim(),
             email: document.getElementById('edit-email').value.trim(),
             linkedin: document.getElementById('edit-linkedin').value.trim(),
-            github: document.getElementById('edit-github').value.trim()
+            github: document.getElementById('edit-github').value.trim(),
+            logros: document.getElementById('edit-logros').value.trim() // NUEVO
         };
 
         btnGuardarInicio.textContent = "Guardando...";
@@ -452,6 +456,7 @@ if(btnGuardarInicio) {
             linkEmail.href = `mailto:${data.email}`;
             linkLinkedin.href = data.linkedin;
             linkGithub.href = data.github;
+            txtLogros.textContent = data.logros; // NUEVO
             
             modalInicio.style.display = 'none';
         } catch (error) {
