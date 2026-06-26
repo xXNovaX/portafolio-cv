@@ -420,7 +420,7 @@ header, .seccion {
 }
 
 /* Títulos y nombres resaltados en blanco puro */
-.empresa-info h4, .perfil-recomienda strong {
+.empresa-info h4, .perfil-recomienda strong, .card-proyecto h4 {
     color: #ffffff !important; 
 }
 
