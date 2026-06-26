@@ -66,6 +66,13 @@ header, .seccion {
     display: none; /* <-- Esto oculta todas las secciones al cargar */
 }
 
+
+/* RESPETA LOS SALTOS DE LÍNEA EN EL TEXTO SOBRE MÍ */
+#texto-sobremi {
+    white-space: pre-wrap;
+}
+
+
 /* CLASE MÁGICA: Muestra solo la sección seleccionada con animación */
 header.activa, .seccion.activa {
     display: block !important;
