@@ -583,3 +583,15 @@ header, .seccion {
     70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
     100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
 }
+
+/* ==========================================
+   ESTILO TECH STACK
+   ========================================= */
+.tech-grid img {
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.tech-grid img:hover {
+    transform: translateY(-5px) scale(1.05);
+}
