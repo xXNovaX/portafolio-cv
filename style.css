@@ -364,3 +364,50 @@ header {
 .contacto-links a:hover {
     text-decoration: underline;
 }
+
+/* ==========================================
+   DISEÑO RESPONSIVO (PARA CELULARES) - CORREGIDO
+   ========================================== */
+@media (max-width: 768px) {
+    
+    /* 1. Ajustes en la Barra de Navegación */
+    .navbar {
+        flex-direction: column; /* Pone el logo arriba y los links abajo */
+        padding: 15px 10px;
+        gap: 15px; /* Separación entre el logo y los links */
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap; /* Si no caben, bajan de línea ordenadamente */
+        justify-content: center; /* Centra todos los botones */
+        gap: 10px 15px; /* Espacio vertical y horizontal entre botones */
+    }
+
+    .nav-links a {
+        white-space: nowrap; /* EL SECRETO: Evita que "Sobre Mí" se parta en dos */
+        font-size: 0.95rem; /* Un pelín más pequeño para celular */
+        padding: 5px;
+    }
+
+    body {
+        padding-top: 130px; /* Bajamos el contenido porque el menú ahora es más alto */
+    }
+
+    /* 2. Ajustes en los Contenedores Principales */
+    header, .seccion {
+        margin: 20px 15px;
+        padding: 20px;
+    }
+
+    /* 3. Ajustes en elementos de texto y tarjetas */
+    .titulo-barra {
+        font-size: 1.2rem;
+    }
+
+    .empresa-header {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+}
