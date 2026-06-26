@@ -13,15 +13,12 @@ html {
 }
 
 body {
-    background-color: #f1f5f9;
-    /* Cuadrícula técnica que simula un plano de datos */
-    background-image: 
-        linear-gradient(rgba(56, 189, 248, 0.25) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(56, 189, 248, 0.25) 1px, transparent 1px);
-    background-size: 40px 40px;
-    /* La animación hace que la cuadrícula se mueva constantemente */
-    animation: moverDatos 15s linear infinite;
-    color: #334155;
+    background-color: #050b14; /* Color oscuro de respaldo */
+    background-image: url('fondo.jpg'); /* Carga tu imagen */
+    background-size: cover; /* Hace que cubra toda la pantalla */
+    background-attachment: fixed; /* El fondo se queda quieto al bajar */
+    background-position: center;
+    color: #e2e8f0; /* Letras claras por defecto */
     padding-top: 70px; 
     display: flex;
     flex-direction: column;
@@ -89,25 +86,17 @@ body {
 header, .seccion {
     max-width: 900px;
     margin: 40px auto;
-    background: #ffffff;
+    /* EFECTO VIDRIO OSCURO (Glassmorphism) */
+    background: rgba(15, 23, 42, 0.75); /* Fondo oscuro semi-transparente */
+    backdrop-filter: blur(10px); /* Difumina el código que queda detrás */
+    -webkit-backdrop-filter: blur(10px);
+    
     padding: 40px;
     border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.3); /* Borde sutil cyan */
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.1); /* Brillo cyan elegante, no exagerado */
     display: none; 
-    position: relative; /* CRÍTICO para que el brillo funcione */
-}
-
-/* El aura Glow Animada */
-header::before, .seccion::before {
-    content: "";
-    position: absolute;
-    top: -3px; left: -3px; right: -3px; bottom: -3px;
-    background: linear-gradient(45deg, #38bdf8, #10b981, #38bdf8, #8b5cf6);
-    z-index: -1;
-    background-size: 400%;
-    border-radius: 15px;
-    animation: bordeGlow 12s ease infinite;
-    opacity: 0.6;
+    color: #f1f5f9; /* Texto blanco humo */
 }
 
 @keyframes bordeGlow {
